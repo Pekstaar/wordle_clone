@@ -2,18 +2,17 @@ import { TrieNode } from "./Trie.js";
 import { words } from "./words.js";
 
 const wordTrie = new TrieNode(words);
+let gameIsOver = false;
+let currentWord = "";
 
 // const wordsLength = words.length;
 
 const chosenWord = words[Math.floor(Math.random() * words.length)];
 
-let gameIsOver = false;
-
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 //pick random word form wordlist
-const chosenWord = "apple";
-let currentWord = "";
+
 var wordsSubmitted = [];
 
 const showToast = (msg) => {
@@ -200,4 +199,8 @@ Array.from(document.getElementsByClassName("key")).forEach((keyDiv) => {
 
     keyDownEvent(letter === "⌫" ? "Backspace" : letter);
   });
+});
+
+document.getElementsByClassName("refresh").addEventListener("click", () => {
+  wordsSubmitted = [];
 });
